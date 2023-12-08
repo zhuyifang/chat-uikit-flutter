@@ -75,7 +75,7 @@ dependencies:
   diff_match_patch: ^0.4.1
   just_audio: ^0.9.34
   markdown: ^7.1.0
-  logger: ^2.0.1
+  logger: ^1.1.0
   image_clipboard: ^1.0.0+2
 
 dev_dependencies:
