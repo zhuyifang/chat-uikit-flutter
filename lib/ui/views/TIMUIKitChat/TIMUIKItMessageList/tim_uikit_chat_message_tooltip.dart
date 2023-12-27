@@ -357,7 +357,7 @@ class TIMUIKitMessageTooltipState
       widgetList = formattedTipsList
           .map(
             (item) => Material(
-              color: Colors.white,
+              color: Colors.transparent,//Colors.white,
               child: ItemInkWell(
                 onTap: () {
                   item.onClick();
@@ -570,7 +570,7 @@ class TIMUIKitMessageTooltipState
                     borderRadius: const BorderRadius.all(Radius.circular(10)),
                   )
                 : null,
-            color: isDesktopScreen ? null : Colors.white,
+            color: isDesktopScreen ? null : Colors.transparent,
             padding: EdgeInsets.symmetric(
                 horizontal: 8, vertical: isDesktopScreen ? 8 : 4),
             child: ConstrainedBox(
