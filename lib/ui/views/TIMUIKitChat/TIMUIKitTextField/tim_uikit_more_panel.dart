@@ -506,6 +506,7 @@ class _MorePanelState extends TIMUIKitState<MorePanel> {
       final pickedFile = await CameraPicker.pickFromCamera(context,
           pickerConfig: CameraPickerConfig(
               enableRecording: true,
+              resolutionPreset: ResolutionPreset.medium,
               textDelegate: IntlCameraPickerTextDelegate()));
       final originFile = await pickedFile?.originFile;
       if (originFile != null) {
