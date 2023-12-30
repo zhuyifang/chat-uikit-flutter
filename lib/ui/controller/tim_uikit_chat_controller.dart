@@ -142,15 +142,15 @@ class TIMUIKitChatController {
       assert((groupID == null) != (userID == null));
       assert(groupID != null || convType != ConvType.group);
       assert(userID != null || convType != ConvType.c2c);
-      if (isNavigateToMessageListBottom && scrollController != null) {
-        try{
+      try{
+        if (isNavigateToMessageListBottom && scrollController != null) {
           scrollController?.animateTo(
             scrollController!.position.minScrollExtent,
             duration: const Duration(milliseconds: 200),
             curve: Curves.ease,
           );
-        }catch(e){}
-      }
+        }
+      }catch(e){}
       return globalChatModel.sendMessageFromController(
           priority: priority,
           onlineUserOnly: onlineUserOnly,

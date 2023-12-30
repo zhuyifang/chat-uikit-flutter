@@ -506,6 +506,7 @@ class _MorePanelState extends TIMUIKitState<MorePanel> {
       final pickedFile = await CameraPicker.pickFromCamera(context,
           pickerConfig: CameraPickerConfig(
               enableRecording: true,
+              resolutionPreset: ResolutionPreset.medium,
               textDelegate: IntlCameraPickerTextDelegate()));
       final originFile = await pickedFile?.originFile;
       if (originFile != null) {
@@ -720,12 +721,12 @@ class _MorePanelState extends TIMUIKitState<MorePanel> {
     final screenWidth = MediaQuery.of(context).size.width;
     return Container(
       height: 248,
-      decoration: BoxDecoration(
-        // color: hexToColor("EBF0F6"),
-        border: Border(
-          top: BorderSide(width: 1, color: Colors.grey.shade300),
-        ),
-      ),
+      // decoration: BoxDecoration(
+      //   // color: hexToColor("EBF0F6"),
+      //   border: Border(
+      //     top: BorderSide(width: 1, color: Colors.grey.shade300),
+      //   ),
+      // ),
       padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
       width: screenWidth,
       child: Scrollbar(

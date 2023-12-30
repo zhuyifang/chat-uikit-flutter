@@ -218,6 +218,7 @@ class _TIMUIKitTextFieldLayoutNarrowState extends TIMUIKitState<TIMUIKitTextFiel
               defaultCustomEmojiStickerList: widget.isUseDefaultEmoji ? TUIKitStickerConstData.emojiList : [])
           : StickerPanel(
               isWideScreen: false,
+              backgroundColor: widget.backgroundColor,
               sendTextMsg: () {
                 widget.onEmojiSubmitted();
                 setSendButton();
@@ -497,7 +498,7 @@ class _TIMUIKitTextFieldLayoutNarrowState extends TIMUIKitState<TIMUIKitTextFiel
                                           // fontSize: 10,
                                           color: Color(0xffAEA4A3),
                                         ),
-                                        fillColor: Colors.white,
+                                        fillColor: theme.wideBackgroundColor,
                                         filled: true,
                                         isDense: true,
                                         hintText: widget.hintText ?? ''),

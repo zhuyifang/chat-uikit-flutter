@@ -332,6 +332,7 @@ class MergerMessageScreenState extends TIMUIKitState<MergerMessageScreen> {
               iconTheme: IconThemeData(
                 color: theme.appbarTextColor,
               )),
+          backgroundColor: theme.chatBgColor,
           body: messageListPage(),
         ));
   }
