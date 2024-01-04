@@ -178,6 +178,7 @@ class _SelectCallInviterState extends TIMUIKitState<SelectCallInviter> {
             ),
           ),
         ),
+        backgroundColor: theme.appbarBgColor,
         body: ((searchMemberList ?? []).isNotEmpty || loading == false)
             ? GroupProfileMemberList(
                 customTopArea: PlatformUtils().isWeb

@@ -24,7 +24,7 @@ class GroupMemberSearchTextField extends TIMUIKitStatelessWidget {
         (text) => onTextChange(text), const Duration(milliseconds: 300));
 
     return Container(
-      color: Colors.white,
+      color: theme.appbarBgColor ?? Colors.white,
       child: Column(children: [
         if(!isDesktopScreen) Container(
           decoration: BoxDecoration(

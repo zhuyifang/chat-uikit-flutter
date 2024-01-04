@@ -117,7 +117,7 @@ class _GroupProfileMemberListState
     final isGroupMember =
         memberInfo.role == GroupMemberRoleType.V2TIM_GROUP_MEMBER_ROLE_MEMBER;
     return Container(
-        color: Colors.white,
+        color: theme.wideBackgroundColor ?? Colors.white,
         child: Slidable(
             endActionPane: widget.canSlideDelete && isGroupMember
                 ? ActionPane(motion: const DrawerMotion(), children: [
