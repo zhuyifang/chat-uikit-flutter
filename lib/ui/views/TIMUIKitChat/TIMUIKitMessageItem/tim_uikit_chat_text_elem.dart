@@ -229,6 +229,7 @@ class _TIMUIKitTextElemState extends TIMUIKitState<TIMUIKitTextElem> {
                   style: widget.fontStyle ??
                       TextStyle(
                           fontSize: isDesktopScreen ? 14 : 16,
+                          color: theme.chatMessageItemTextColor,
                           textBaseline: TextBaseline.ideographic,
                           height: widget.chatModel.chatConfig.textHeight))
               : ExtendedText(widget.message.textElem?.text ?? "",
@@ -236,6 +237,7 @@ class _TIMUIKitTextElemState extends TIMUIKitState<TIMUIKitTextElem> {
                   style: widget.fontStyle ??
                       TextStyle(
                           fontSize: isDesktopScreen ? 14 : 16,
+                          color: theme.chatMessageItemTextColor,
                           height: widget.chatModel.chatConfig.textHeight),
                   specialTextSpanBuilder: DefaultSpecialTextSpanBuilder(
                     isUseQQPackage: (widget

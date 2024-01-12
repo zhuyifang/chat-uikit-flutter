@@ -451,7 +451,8 @@ class _TIMUIKitTextFieldLayoutNarrowState extends TIMUIKitState<TIMUIKitTextFiel
                         child: SvgPicture.asset(
                           showSendSoundText ? 'images/keyboard.svg' : 'images/voice.svg',
                           package: 'tencent_cloud_chat_uikit',
-                          color: const Color.fromRGBO(68, 68, 68, 1),
+                          color: theme.chatMessageItemTextColor,
+                          // color: const Color.fromRGBO(68, 68, 68, 1),
                           height: 28,
                           width: 28,
                         ),
@@ -478,6 +479,10 @@ class _TIMUIKitTextFieldLayoutNarrowState extends TIMUIKitState<TIMUIKitTextFiel
                                         showMore = false;
                                       });
                                     },
+                                    style: TextStyle(
+                                      color: theme.chatMessageItemTextColor,
+                                      fontSize: 15
+                                    ),
                                     keyboardType: TextInputType.multiline,
                                     textInputAction: PlatformUtils().isAndroid ? TextInputAction.newline : TextInputAction.send,
                                     onEditingComplete: () {
@@ -534,7 +539,8 @@ class _TIMUIKitTextFieldLayoutNarrowState extends TIMUIKitState<TIMUIKitTextFiel
                             : SvgPicture.asset(
                                 showEmojiPanel ? 'images/keyboard.svg' : 'images/face.svg',
                                 package: 'tencent_cloud_chat_uikit',
-                                color: const Color.fromRGBO(68, 68, 68, 1),
+                                color: theme.chatMessageItemTextColor,
+                                // color: const Color.fromRGBO(68, 68, 68, 1),
                                 height: 28,
                                 width: 28,
                               ),
@@ -555,7 +561,8 @@ class _TIMUIKitTextFieldLayoutNarrowState extends TIMUIKitState<TIMUIKitTextFiel
                             : SvgPicture.asset(
                                 'images/add.svg',
                                 package: 'tencent_cloud_chat_uikit',
-                                color: const Color.fromRGBO(68, 68, 68, 1),
+                                color: theme.chatMessageItemTextColor,
+                                // color: const Color.fromRGBO(68, 68, 68, 1),
                                 height: 28,
                                 width: 28,
                               ),

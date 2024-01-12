@@ -173,7 +173,7 @@ class _GroupProfileMemberListState
                       ),
                     ),
                     Text(_getShowName(memberInfo),
-                        style:  TextStyle(fontSize: isDesktopScreen ? 14 : 16)),
+                        style:  TextStyle(fontSize: isDesktopScreen ? 14 : 16, color: theme.chatMessageItemTextColor)),
                     memberInfo.role ==
                             GroupMemberRoleType.V2TIM_GROUP_MEMBER_ROLE_OWNER
                         ? Container(
