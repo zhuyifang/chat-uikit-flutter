@@ -465,64 +465,70 @@ class _TIMUIKitTextFieldLayoutNarrowState extends TIMUIKitState<TIMUIKitTextFiel
                       Expanded(
                         child: showSendSoundText
                             ? SendSoundMessage(onDownBottom: widget.goDownBottom, conversationID: widget.conversationID, conversationType: widget.conversationType)
-                            : KeyboardVisibility(
-                                child: ExtendedTextField(
-                                    maxLines: 4,
-                                    minLines: 1,
-                                    focusNode: widget.focusNode,
-                                    onChanged: debounceFunc,
-                                    onTap: () {
-                                      showKeyboard = true;
-                                      widget.goDownBottom();
-                                      setState(() {
-                                        showEmojiPanel = false;
-                                        showMore = false;
-                                      });
-                                    },
-                                    style: TextStyle(
-                                      color: theme.chatMessageItemTextColor,
-                                      fontSize: 15
-                                    ),
-                                    keyboardType: TextInputType.multiline,
-                                    textInputAction: PlatformUtils().isAndroid ? TextInputAction.newline : TextInputAction.send,
-                                    onEditingComplete: () {
-                                      widget.onSubmitted();
-                                      if (showKeyboard) {
-                                        widget.focusNode.requestFocus();
-                                      }
-                                      setState(() {
-                                        if (widget.textEditingController.text.isEmpty) {
-                                          showMoreButton = true;
+                            : Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8),
+                                border: Border.all(width: 1, color: theme.weakDividerColor??Colors.white)
+                              ),
+                              child: KeyboardVisibility(
+                                  child: ExtendedTextField(
+                                      maxLines: 4,
+                                      minLines: 1,
+                                      focusNode: widget.focusNode,
+                                      onChanged: debounceFunc,
+                                      onTap: () {
+                                        showKeyboard = true;
+                                        widget.goDownBottom();
+                                        setState(() {
+                                          showEmojiPanel = false;
+                                          showMore = false;
+                                        });
+                                      },
+                                      style: TextStyle(
+                                        color: theme.chatMessageItemTextColor,
+                                        fontSize: 15
+                                      ),
+                                      keyboardType: TextInputType.multiline,
+                                      textInputAction: PlatformUtils().isAndroid ? TextInputAction.newline : TextInputAction.send,
+                                      onEditingComplete: () {
+                                        widget.onSubmitted();
+                                        if (showKeyboard) {
+                                          widget.focusNode.requestFocus();
                                         }
+                                        setState(() {
+                                          if (widget.textEditingController.text.isEmpty) {
+                                            showMoreButton = true;
+                                          }
+                                        });
+                                      },
+                                      textAlignVertical: TextAlignVertical.top,
+                                      decoration: InputDecoration(
+                                          border: InputBorder.none,
+                                          hintStyle: const TextStyle(
+                                            // fontSize: 10,
+                                            color: Color(0xffAEA4A3),
+                                          ),
+                                          fillColor: Colors.transparent,//theme.wideBackgroundColor,
+                                          filled: true,
+                                          isDense: true,
+                                          hintText: widget.hintText ?? ''),
+                                      controller: widget.textEditingController,
+                                      specialTextSpanBuilder: PlatformUtils().isWeb
+                                          ? null
+                                          : DefaultSpecialTextSpanBuilder(
+                                              isUseQQPackage: (widget.model.chatConfig.stickerPanelConfig?.useTencentCloudChatStickerPackage ?? true) || widget.isUseDefaultEmoji,
+                                              isUseTencentCloudChatPackage: widget.model.chatConfig.stickerPanelConfig?.useTencentCloudChatStickerPackage ?? true,
+                                              customEmojiStickerList: widget.customEmojiStickerList,
+                                              showAtBackground: true,
+                                            )),
+                                  onChanged: (bool visibility) {
+                                    if (showKeyboard != visibility) {
+                                      setState(() {
+                                        showKeyboard = visibility;
                                       });
-                                    },
-                                    textAlignVertical: TextAlignVertical.top,
-                                    decoration: InputDecoration(
-                                        border: InputBorder.none,
-                                        hintStyle: const TextStyle(
-                                          // fontSize: 10,
-                                          color: Color(0xffAEA4A3),
-                                        ),
-                                        fillColor: theme.wideBackgroundColor,
-                                        filled: true,
-                                        isDense: true,
-                                        hintText: widget.hintText ?? ''),
-                                    controller: widget.textEditingController,
-                                    specialTextSpanBuilder: PlatformUtils().isWeb
-                                        ? null
-                                        : DefaultSpecialTextSpanBuilder(
-                                            isUseQQPackage: (widget.model.chatConfig.stickerPanelConfig?.useTencentCloudChatStickerPackage ?? true) || widget.isUseDefaultEmoji,
-                                            isUseTencentCloudChatPackage: widget.model.chatConfig.stickerPanelConfig?.useTencentCloudChatStickerPackage ?? true,
-                                            customEmojiStickerList: widget.customEmojiStickerList,
-                                            showAtBackground: true,
-                                          )),
-                                onChanged: (bool visibility) {
-                                  if (showKeyboard != visibility) {
-                                    setState(() {
-                                      showKeyboard = visibility;
-                                    });
-                                  }
-                                }),
+                                    }
+                                  }),
+                            ),
                       ),
                     if (widget.forbiddenText == null)
                       const SizedBox(
